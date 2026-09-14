@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111827">
+<title>Reto 8 Semanas · Reactiva tu Negocio</title>
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{--bg:#0b1020;--card:#111827;--line:#2b3446;--text:#f8fafc;--muted:#aab4c4;--accent:#d7ef63}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(#0b1020,#101827);color:var(--text)}
+.wrap{max-width:920px;margin:auto;padding:16px 14px 70px}.hero,.card,.panel{background:#111827;border:1px solid var(--line);border-radius:22px}
+.hero{padding:24px}.eyebrow{color:var(--accent);font-weight:800;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+h1{font-size:clamp(2.2rem,8vw,4.2rem);line-height:.95;margin:.5rem 0 1rem}.lead{color:#d4d9e1;line-height:1.55}
+.progress-shell{height:12px;background:#273047;border-radius:999px;overflow:hidden;margin-top:18px}.progress{height:100%;width:0;background:var(--accent)}
+.progress-row{display:flex;justify-content:space-between;color:var(--muted);font-size:.9rem;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}.card{padding:17px;cursor:pointer}.card:hover{border-color:#52617a}
+.card h3{margin:10px 0 6px}.card p{color:var(--muted);line-height:1.4;margin:0}.tag{color:var(--accent);font-size:.78rem;font-weight:800}
+.mini{height:7px;background:#263047;border-radius:999px;margin-top:12px;overflow:hidden}.mini div{height:100%;background:var(--accent);width:0}
+.panel{display:none;padding:20px;margin-top:16px}.panel.active{display:block}.box{background:#0d1422;border:1px solid #29354a;border-radius:16px;padding:15px;margin-top:12px}
+.box h4{margin:0 0 8px}.box p{color:#cbd5e1;line-height:1.5}.check{list-style:none;padding:0;margin:0}.check li{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed #2a3446}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}input[type=text],input[type=number],textarea{width:100%;background:#0a1120;border:1px solid #34415a;color:white;border-radius:11px;padding:10px;margin-top:8px}
+textarea{min-height:90px}.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+button{border:0;border-radius:11px;padding:10px 14px;font-weight:800;cursor:pointer}.primary{background:var(--accent);color:#111827}.secondary{background:#243049;color:white}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.section-title{margin:26px 2px 10px}.section-title h2{margin:0 0 4px}.section-title p{margin:0;color:var(--muted)}
+@media(max-width:720px){.grid,.fields{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<div class="eyebrow">Reto digital · 8 semanas</div>
+<h1>Reactiva tu negocio</h1>
+<p class="lead">Un sistema práctico para pasar de la intención a la actividad: posicionamiento, atracción, prospección, ventas, presentaciones, aceleramiento y duplicación.</p>
+<div class="progress-shell"><div id="globalProgress" class="progress"></div></div>
+<div class="progress-row"><span id="globalPct">0%</span><span id="globalCount">0 de 0 acciones</span></div>
+</section>
+
+<div class="section-title"><h2>Tu ruta</h2><p>Toca una semana para abrirla. El progreso se guarda en este dispositivo.</p></div>
+<section id="weekGrid" class="grid"></section>
+
+<section id="week1" class="panel">
+<div class="tag">SEMANA 1 · POSICIONAMIENTO</div>
+<h2>Posicionamiento de la Networker Digital</h2>
+<p class="lead">Esta semana no se trata de vender más. Se trata de que las personas entiendan quién eres, a quién ayudas y por qué vale la pena escucharte.</p>
+
+<div class="box">
+<h4>1. Mini clase</h4>
+<p>La gente conecta primero con personas, no con catálogos. Tu perfil debe responder tres preguntas: <b>¿quién eres?, ¿a quién ayudas?, ¿qué resultado facilitas?</b></p>
+</div>
+
+<div class="box">
+<h4>2. Diagnóstico de tu perfil</h4>
+<ul class="check">
+<li><input type="checkbox" data-task data-week="1"><label>Mi foto de perfil genera confianza y se ve actual.</label></li>
+<li><input type="checkbox" data-task data-week="1"><label>Mi biografía explica claramente qué hago.</label></li>
+<li><input type="checkbox" data-task data-week="1"><label>Mi WhatsApp tiene nombre, foto y descripción profesional.</label></li>
+<li><input type="checkbox" data-task data-week="1"><label>Mis publicaciones muestran persona + valor, no solo producto.</label></li>
+</ul>
+</div>
+
+<div class="box">
+<h4>3. Construye tu frase de posicionamiento</h4>
+<div class="fields">
+<input type="text" data-save placeholder="Yo soy...">
+<input type="text" data-save placeholder="Ayudo a...">
+<input type="text" data-save placeholder="A lograr...">
+<input type="text" data-save placeholder="A través de...">
+</div>
+<textarea data-save placeholder="Escribe aquí tu frase final de posicionamiento..."></textarea>
+</div>
+
+<div class="box">
+<h4>4. Reto de campo</h4>
+<ul class="check">
+<li><input type="checkbox" data-task data-week="1"><label>Actualicé mi biografía.</label></li>
+<li><input type="checkbox" data-task data-week="1"><label>Actualicé mi descripción de WhatsApp.</label></li>
+<li><input type="checkbox" data-task data-week="1"><label>Publiqué mi historia: “Por qué decidí emprender”.</label></li>
+<li><input type="checkbox" data-task data-week="1"><label>Inicié 10 conversaciones reales.</label></li>
+<li><input type="checkbox" data-task data-week="1"><label>Agendé al menos 2 seguimientos.</label></li>
+</ul>
+</div>
+
+<div class="box">
+<h4>5. Tus números</h4>
+<div class="metrics">
+<div><small>Conversaciones</small><input type="number" data-save min="0" placeholder="0"></div>
+<div><small>Contactos nuevos</small><input type="number" data-save min="0" placeholder="0"></div>
+<div><small>Seguimientos</small><input type="number" data-save min="0" placeholder="0"></div>
+<div><small>Ventas</small><input type="number" data-save min="0" placeholder="0"></div>
+</div>
+</div>
+
+<div class="box">
+<h4>Cierre</h4>
+<textarea data-save placeholder="Lo que aprendí esta semana..."></textarea>
+<textarea data-save placeholder="Lo que voy a ejecutar diferente..."></textarea>
+<input type="text" data-save placeholder="Mi número compromiso de la próxima semana...">
+</div>
+
+<div class="actions">
+<button class="primary" onclick="window.scrollTo({top:0,behavior:'smooth'})">Guardar avance</button>
+<button class="secondary" onclick="window.print()">Guardar / imprimir PDF</button>
+<button class="secondary" onclick="closePanels()">Cerrar</button>
+</div>
+</section>
+
+<section id="generic" class="panel">
+<div id="genericTag" class="tag"></div>
+<h2 id="genericTitle"></h2>
+<p id="genericDesc" class="lead"></p>
+<div class="box"><h4>Acciones de la semana</h4><ul id="genericTasks" class="check"></ul></div>
+<div class="box"><h4>Reflexión y compromiso</h4>
+<textarea data-save id="genericLearn" placeholder="Lo que aprendí..."></textarea>
+<textarea data-save id="genericDo" placeholder="Lo que voy a ejecutar..."></textarea>
+<input type="text" data-save id="genericCommit" placeholder="Mi número compromiso...">
+</div>
+<div class="actions"><button class="primary" onclick="window.scrollTo({top:0,behavior:'smooth'})">Guardar avance</button><button class="secondary" onclick="closePanels()">Cerrar</button></div>
+</section>
+</div>
+
+<script>
+const weeks=[
+{n:1,t:"Posicionamiento de la Networker Digital",d:"Define quién eres, a quién ayudas y por qué deberían escucharte."},
+{n:2,t:"Perfil como activo de atracción",d:"Haz que tus redes generen confianza antes de vender.",a:["Publicar 1 historia personal","Publicar 1 contenido útil","Compartir 1 testimonio","Hacer 1 invitación a conversar","Responder personalmente a quienes interactuaron"]},
+{n:3,t:"Atrae, Nutre y Vende",d:"Mueve contactos de conversación a seguimiento y decisión.",a:["Crear lista de contactos nuevos","Dar seguimiento a 20 personas","Hacer 5 recomendaciones","Realizar 3 presentaciones"]},
+{n:4,t:"Prospección inteligente y conversión",d:"Conecta primero, detecta necesidad e invita después.",a:["Día 1: 5 conversaciones nuevas","Día 2: 5 conversaciones nuevas","Día 3: 5 conversaciones nuevas","Día 4: 5 conversaciones nuevas","Día 5: 5 conversaciones nuevas"]},
+{n:5,t:"Psicología de las ventas",d:"Vender es ayudar a decidir, no presionar.",a:["Practicar las 5 preguntas de necesidad","Hacer 5 recomendaciones completas","Pedir una decisión clara","Practicar 3 objeciones frecuentes"]},
+{n:6,t:"Líderes de alto potencial",d:"Identifica personas con capacidad y deseo de construir.",a:["Hacer lista de 20 personas con potencial","Presentar el negocio a 5 personas","Practicar presentación de 15–20 min","Elegir 2 seguimientos prioritarios"]},
+{n:7,t:"Plan de aceleramiento",d:"Convierte tu meta de 90 días en acciones semanales medibles.",a:["Definir meta de clientes","Definir meta de socios","Calcular conversaciones necesarias","Crear tablero 30–60–90"]},
+{n:8,t:"Duplicación y liderazgo",d:"El negocio crece cuando otro puede hacer lo que tú haces.",a:["Enseñar a un socio a hacer su lista","Acompañar una primera presentación","Ayudar a generar primeros clientes","Definir rutina de 7 días","Reconocer actividad, constancia y duplicación"]}
+];
+
+const grid=document.getElementById('weekGrid');
+weeks.forEach(w=>{
+ const e=document.createElement('article');e.className='card';
+ e.innerHTML=`<div class="tag">SEMANA ${w.n} · <span id="s${w.n}">0%</span></div><h3>${w.t}</h3><p>${w.d}</p><div class="mini"><div id="m${w.n}"></div></div>`;
+ e.onclick=()=>openWeek(w.n);grid.appendChild(e);
+});
+
+function closePanels(){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'))}
+function openWeek(n){
+ closePanels();
+ if(n===1){document.getElementById('week1').classList.add('active');document.getElementById('week1').scrollIntoView({behavior:'smooth'});return}
+ const w=weeks.find(x=>x.n===n);
+ genericTag.textContent=`SEMANA ${n}`;genericTitle.textContent=w.t;genericDesc.textContent=w.d;genericTasks.innerHTML='';
+ w.a.forEach((t,i)=>{let li=document.createElement('li');li.innerHTML=`<input type="checkbox" data-task data-week="${n}" id="w${n}t${i}"><label for="w${n}t${i}">${t}</label>`;genericTasks.appendChild(li)});
+ bindAll();generic.classList.add('active');generic.scrollIntoView({behavior:'smooth'});
+}
+
+function key(el){
+ if(el.id) return 'reto_'+el.id;
+ if(!el.dataset.key) el.dataset.key='reto_auto_'+[...document.querySelectorAll('input,textarea')].indexOf(el);
+ return el.dataset.key;
+}
+function bindAll(){
+ document.querySelectorAll('input,textarea').forEach(el=>{
+   if(el.dataset.bound) return; el.dataset.bound='1';
+   const k=key(el),sv=localStorage.getItem(k);
+   if(sv!==null){if(el.type==='checkbox')el.checked=sv==='1';else el.value=sv}
+   el.addEventListener(el.type==='checkbox'?'change':'input',()=>{localStorage.setItem(k,el.type==='checkbox'?(el.checked?'1':'0'):el.value);update()});
+ }); update();
+}
+function update(){
+ let gd=0,gt=0;
+ weeks.forEach(w=>{
+   let total,done=0;
+   if(w.n===1){const ts=[...document.querySelectorAll('[data-task][data-week="1"]')];total=ts.length;done=ts.filter(x=>x.checked).length}
+   else{
+     total=w.a.length;
+     for(let i=0;i<total;i++) if(localStorage.getItem('reto_w'+w.n+'t'+i)==='1') done++;
+     if(generic.classList.contains('active')&&genericTag.textContent===`SEMANA ${w.n}`){
+       const ts=[...document.querySelectorAll(`[data-task][data-week="${w.n}"]`)];done=ts.filter(x=>x.checked).length;
+     }
+   }
+   gd+=done;gt+=total;let p=total?Math.round(done/total*100):0;
+   document.getElementById('s'+w.n).textContent=p+'%';document.getElementById('m'+w.n).style.width=p+'%';
+ });
+ let gp=gt?Math.round(gd/gt*100):0;globalProgress.style.width=gp+'%';globalPct.textContent=gp+'%';globalCount.textContent=`${gd} de ${gt} acciones`;
+}
+bindAll();
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}
+</script>
+</body></html>
