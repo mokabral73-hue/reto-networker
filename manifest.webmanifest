@@ -1,0 +1,16 @@
+{
+  "name": "Reto 8 Semanas · Reactiva tu Negocio",
+  "short_name": "Reto 8 Semanas",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#111827",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
